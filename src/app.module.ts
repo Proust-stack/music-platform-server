@@ -8,7 +8,8 @@ import * as path from 'path'
 @Module({
     imports: [
         ServeStaticModule.forRoot({ rootPath: path.resolve(__dirname, 'static')}),
-        MongooseModule.forRoot('mongodb+srv://admin:N8FJMMUgvej7yqKl@cluster0.rzrdp.mongodb.net/music-platform?retryWrites=true&w=majority'),
+        MongooseModule.forRoot('mongodb+srv://admin:N8FJMMUgvej7yqKl@cluster0.rzrdp.mongodb.net/music-platform?retryWrites=true&w=majority',
+        { useNewUrlParser: true }),
         TrackModule,
         FileModule
     ]
