@@ -15,9 +15,9 @@ export class TrackController {
         { name: 'audio', maxCount: 1 },
       ]))
     create(@UploadedFiles() files, @Body() dto: CreateTrackDto ) {
-        console.log(files)
         const {picture, audio} = files;
-        return this.trackService.create(dto, picture[0], audio[0])
+        // return this.trackService.create(dto, picture[0], audio[0])
+        return
     }
     
     @Get()

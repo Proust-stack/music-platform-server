@@ -19,8 +19,8 @@ export class TrackService {
     async create(dto: CreateTrackDto, picture, audio): Promise<Track> {
         const audioPath = this.fileService.createFile(FileType.AUDIO, audio)
         const picturePath = this.fileService.createFile(FileType.IMAGE, picture)
-        const track = await this.trackModel.create({...dto, listens: 0, audio: audioPath, picture: picturePath})
-        return track;
+        const trackRecorded = await this.trackModel.create({...dto, listens: 0})
+        return trackRecorded;
     }
     async getAll(count = 10, offset = 0): Promise<Track[]> {
         const tracks = await this.trackModel.find().skip(Number(offset)).limit(Number(count));
